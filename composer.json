@@ -1,0 +1,1 @@
+{\n    "require": {\n        "laravel/framework": "^8.0",\n        "smileone/smileone": "^1.0"\n    }\n}
