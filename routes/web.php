@@ -1,7 +1,11 @@
 <?php
 
-use App\Http\Controllers\ZekaiStoreController;
+use Illuminate\Support\Facades\Route;
 
-Route::post('/verify-user', [ZekaiStoreController::class, 'verifyUser']);
-Route::post('/checkout', [ZekaiStoreController::class, 'checkout']);
-Route::get('/process-topup/{id}', [ZekaiStoreController::class, 'processTopup']);
+// API Routes
+Route::prefix('api')->group(function () {
+    Route::post('verify-user', 'Api\UserController@verify');
+    Route::post('checkout', 'Api\CheckoutController@process');
+    Route::get('process-topup/{id}', 'Api\TopupController@process');
+    Route::get('order-status/{id}', 'Api\OrderController@status');
+});
